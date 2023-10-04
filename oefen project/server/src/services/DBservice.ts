@@ -10,14 +10,14 @@ const connection = mysql.createConnection({
 connection.connect();
 
 
-export function GetAll() {
+export function InsertInto(name: string, city: string) {
     console.log("test");
-    connection.query(`SELECT * FROM Deelnemers`, function (error, results, fields) {
+    connection.query(`INSERT INTO Deelnemers (name, city) VALUES ('${name}', '${city}')`, function (error, results, fields) {
         if (error) throw error;
         console.log(results);
     });
 }
 
 module.exports = {
-    GetAll
+    InsertInto
 }
